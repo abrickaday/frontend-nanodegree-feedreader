@@ -113,9 +113,9 @@ $(function() {
           contentAfter,
           contentChanged;
 
-      // This function retrieves the text content of the first h2 element in the feed
+      // This function retrieves the entries in the feed
       function getContent() {
-        return document.getElementsByClassName('entry')[0].firstElementChild.innerText;
+        return document.querySelectorAll('.feed .entry')[0].firstElementChild.innerText;
       }
 
       // Execute loadFeed() two times, one after another, using different feed id to load different content.
