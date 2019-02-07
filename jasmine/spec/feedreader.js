@@ -61,6 +61,8 @@ $(function() {
          */
 
          function isHidden() {
+           // The menu is hidden when the class 'menu-hidden' is added to the body element.
+           // Check whether the body element contains this class.
            return document.getElementsByTagName("body")[0].classList.contains('menu-hidden');
          }
 
@@ -74,6 +76,7 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
           it('is toggled when the menu icon is clicked', function() {
+            // Click the application using click() and check the body element class.
             document.getElementsByClassName('menu-icon-link')[0].click();
             expect(isHidden()).toBe(false);
             document.getElementsByClassName('menu-icon-link')[0].click();
@@ -110,10 +113,13 @@ $(function() {
           contentAfter,
           contentChanged;
 
+      // This function retrieves the text content of the first h2 element in the feed
       function getContent() {
         return document.getElementsByClassName('entry')[0].firstElementChild.innerText;
       }
 
+      // Execute loadFeed() two times, one after another, using different feed id to load different content.
+      // Store these retrieved content for comparison later.
       beforeEach(function(done){
         loadFeed(0, function () {
           contentBefore = getContent();
